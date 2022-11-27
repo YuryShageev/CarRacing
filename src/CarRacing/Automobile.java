@@ -20,6 +20,4 @@ public class Automobile extends Car{
         System.out.println("Закончить движение!");
     }
 
-
-
 }
