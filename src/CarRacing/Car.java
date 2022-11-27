@@ -19,6 +19,7 @@ public abstract class Car {
         brand = "Марка не определена";
         model = "Модель не определена";
         engineVolume = 1.5f;
+
     }
 
     public void startMovement() {
