@@ -30,12 +30,12 @@ public class Automobile extends Car implements Competing{
     @Override
     public void getBestLapTime() {
         float anyNumber = 2.0f;
-        System.out.printf("Лучшее время автомобиля %s, %s, составляет, %2.1f, минут, \n", getBrand(), getModel(), (1+Math.random() * (anyNumber)));
+        System.out.printf("Лучшее время автомобиля %s, %s, составляет, %2.2f, минут, \n", getBrand(), getModel(), (1+Math.random() * (anyNumber)));
     }
 
     @Override
     public void getMaxSpeed() {
         float anySpeed = 200.00f;
-        System.out.println("Максимальная скорость автомобиля " + getBrand() + " " + getModel() + " составляет " + (100 + Math.random() * anySpeed) + " км/ч");
+        System.out.printf("Максимальная скорость автомобиля %s, %s, составляет, %3.2f, км/ч, \n", getBrand(), getModel(), (100 + Math.random() * anySpeed));
     }
 }

@@ -27,14 +27,13 @@ public class Truck extends Car implements Competing{
 
     @Override
     public void getBestLapTime() {
-
-        float anyNumber = 8.0f;
-        System.out.println("Лучшее время автомобиля " + getBrand() + " " + getModel() + " составляет " + (1+Math.random() * (anyNumber)) + " минут");
+        float anyNumber = 6.0f;
+        System.out.printf("Лучшее время грузовика %s, %s, составляет, %2.2f, минут, \n", getBrand(), getModel(), (1+Math.random() * (anyNumber)));
     }
 
     @Override
     public void getMaxSpeed() {
-        float anySpeed = 80.0f;
-        System.out.println("Максимальная скорость автомобиля " + getBrand() + " " + getModel() + " составляет " + (100 + Math.random() * anySpeed) + " км/ч");
+        float anySpeed = 80.00f;
+        System.out.printf("Максимальная скорость грузовика %s, %s, составляет, %3.2f, км/ч, \n", getBrand(), getModel(), (100 + Math.random() * anySpeed));
     }
 }

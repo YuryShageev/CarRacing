@@ -28,12 +28,12 @@ public class Bus extends Car implements Competing {
     @Override
     public void getBestLapTime() {
         float anyNumber = 10.0f;
-        System.out.println("Лучшее время автомобиля " + getBrand() + " " + getModel() + " составляет " + (1+Math.random() * (anyNumber)) + " минут");
+        System.out.printf("Лучшее время автобуса %s, %s, составляет, %2.2f, минут, \n", getBrand(), getModel(), (1+Math.random() * (anyNumber)));
     }
 
     @Override
     public void getMaxSpeed() {
         float anySpeed = 50.0f;
-        System.out.println("Максимальная скорость автомобиля " + getBrand() + " " + getModel() + " составляет " + (100 + Math.random() * anySpeed) + " км/ч");
+        System.out.printf("Максимальная скорость Автобуса %s, %s, составляет, %3.2f, км/ч, \n", getBrand(), getModel(), (100 + Math.random() * anySpeed));
     }
 }
