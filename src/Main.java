@@ -1,7 +1,4 @@
-import CarRacing.Automobile;
-import CarRacing.Bus;
-import CarRacing.Competing;
-import CarRacing.Truck;
+import CarRacing.*;
 
 import java.util.Arrays;
 
@@ -15,6 +12,7 @@ public class Main {
                 new Automobile("Жигули", "Шестёрка", 1.6f)
         };
 
+        DriverB driverB = new DriverB<>("Ковбой", true, 7);
         for (int i = 0; i < automobiles.length; i++) {
             System.out.println(automobiles[i]);
             automobiles[i].startMovement();
@@ -22,6 +20,8 @@ public class Main {
             automobiles[i].getBestLapTime();
             automobiles[i].getMaxSpeed();
             automobiles[i].finishMovement();
+            System.out.println(driverB.getAutomobileMessage(automobiles[i]));
+
         }
 
         separator();
