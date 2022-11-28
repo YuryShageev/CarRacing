@@ -2,9 +2,9 @@ package CarRacing;
 
 public interface Competing {
 
-    String[] getPitStopped();
+    void pitStopped();
 
-    float[] getBestLapTime();
+    void getBestLapTime();
 
-    float[] getMaxSpeed();
+    void getMaxSpeed();
 }
