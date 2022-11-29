@@ -4,10 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         Automobile[] automobiles = {
-                new Automobile("Шевроле", "Камаро", 3.8f),
-                new Automobile("Космич", "Пирожок", 1.5f),
-                new Automobile("Жигули", "Девятка", 1.5f),
-                new Automobile("Жигули", "Шестёрка", 1.6f)
+                new Automobile("Шевроле", "Камаро", 3.8f, BodyType.BD_SEDAN),
+                new Automobile("Космич", "Пирожок", 1.5f, BodyType.BD_HATCH),
+                new Automobile("Жигули", "Девятка", 1.5f, BodyType.BD_HATCH),
+                new Automobile("Жигули", "Шестёрка", 1.6f, BodyType.BD_SEDAN)
         };
 
         DriverB<Automobile> driverB = new DriverB<>("Ковбой", true, 7);
@@ -26,10 +26,10 @@ public class Main {
         separator();
 
         Truck[] trucks = {
-                new Truck("Зил", "Сто тридцать", 5.9f),
-                new Truck("Краз", "Двести пятьдесят пять", 14.8f),
-                new Truck("Зил", "Сто тридцать один", 6.5f),
-                new Truck("Маз", "Пятьсот тридцать семь", 12.6f)
+                new Truck("Зил", "Сто тридцать", 5.9f, Weight.N1),
+                new Truck("Краз", "Двести пятьдесят пять", 14.8f, Weight.N3),
+                new Truck("Зил", "Сто тридцать один", 6.5f, Weight.N1),
+                new Truck("Маз", "Пятьсот тридцать семь", 12.6f, Weight.N2)
         };
 
         DriverC<Truck> driverC = new DriverC<>("Михалыч", true, 12);
@@ -48,10 +48,10 @@ public class Main {
 
 
         Bus[] buses = {
-                new Bus("Паз", "672", 6.3f),
-                new Bus("Маз", "746", 5.7f),
-                new Bus("ЛиАЗ", "456", 7.1f),
-                new Bus("Hyundai", "Dlya Russii", 4.3f)
+                new Bus("Паз", "672", 6.3f, Capacity.SMALL),
+                new Bus("Маз", "746", 5.7f, Capacity.LARGE),
+                new Bus("ЛиАЗ", "456", 7.1f, Capacity.MEDIUM),
+                new Bus("Hyundai", "Dlya Russii", 4.3f, Capacity.EXTRA_SMALL)
         };
 
         DriverD<Bus> driverD = new DriverD<>("Петрович", true, 23);

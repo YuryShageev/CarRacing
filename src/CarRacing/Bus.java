@@ -2,8 +2,18 @@ package CarRacing;
 
 public class Bus extends Car implements Competing {
 
-    public Bus(String brand, String model, float engineVolume) {
+    private Capacity capacity;
+    public Bus(String brand, String model, float engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
     }
 
     public Bus() {
@@ -18,6 +28,16 @@ public class Bus extends Car implements Competing {
     public void finishMovement() {
         System.out.println("Закончить движение!");
     }
+
+    @Override
+    public void printType() {
+        if (capacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Вместимость - " + capacity);
+        }
+    }
+
 
     @Override
     public void pitStopped() {

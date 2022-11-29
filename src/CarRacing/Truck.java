@@ -2,8 +2,19 @@ package CarRacing;
 
 public class Truck extends Car implements Competing{
 
-    public Truck(String brand, String model, float engineVolume) {
+    private Weight weight;
+
+    public Truck(String brand, String model, float engineVolume, Weight weight) {
         super(brand, model, engineVolume);
+        this.weight = weight;
+    }
+
+    public Weight getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Weight weight) {
+        this.weight = weight;
     }
 
     public Truck() {
@@ -18,6 +29,16 @@ public class Truck extends Car implements Competing{
     public void finishMovement() {
         System.out.println("Закончить движение!");
     }
+
+    @Override
+    public void printType() {
+        if (weight == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Грузоподъемность - " + weight);
+        }
+    }
+
 
     @Override
     public void pitStopped() {
