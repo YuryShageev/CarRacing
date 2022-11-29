@@ -1,7 +1,5 @@
 import CarRacing.*;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -12,7 +10,8 @@ public class Main {
                 new Automobile("Жигули", "Шестёрка", 1.6f)
         };
 
-        DriverB driverB = new DriverB<>("Ковбой", true, 7);
+        DriverB<Automobile> driverB = new DriverB<>("Ковбой", true, 7);
+
         for (int i = 0; i < automobiles.length; i++) {
             System.out.println(automobiles[i]);
             automobiles[i].startMovement();
@@ -32,6 +31,9 @@ public class Main {
                 new Truck("Зил", "Сто тридцать один", 6.5f),
                 new Truck("Маз", "Пятьсот тридцать семь", 12.6f)
         };
+
+        DriverC<Truck> driverC = new DriverC<>("Михалыч", true, 12);
+
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(trucks[i]);
             trucks[i].startMovement();
@@ -39,6 +41,7 @@ public class Main {
             trucks[i].getBestLapTime();
             trucks[i].getMaxSpeed();
             trucks[i].finishMovement();
+            System.out.println(driverC.getTruckMessage(trucks[i]));
         }
 
         separator();
@@ -51,6 +54,8 @@ public class Main {
                 new Bus("Hyundai", "Dlya Russii", 4.3f)
         };
 
+        DriverD<Bus> driverD = new DriverD<>("Петрович", true, 23);
+
         for (Bus bus : buses) {
             System.out.println(bus);
             bus.startMovement();
@@ -58,6 +63,7 @@ public class Main {
             bus.getBestLapTime();
             bus.getMaxSpeed();
             bus.finishMovement();
+            System.out.println(driverD.getBusMessage(bus));
         }
     }
 
