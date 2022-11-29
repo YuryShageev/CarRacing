@@ -34,7 +34,7 @@ public class Bus extends Car implements Competing {
         if (capacity == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println("Вместимость - " + capacity);
+            System.out.println("Вместимость - от " + capacity.getFrom() + " до " + capacity.getTo());
         }
     }
 
