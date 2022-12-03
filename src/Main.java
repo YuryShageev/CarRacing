@@ -66,8 +66,10 @@ public class Main {
             System.out.println(driverD.getBusMessage(bus));
         }
 
+        separator();
         printInfo(driverB, automobiles[1]);
-
+        printInfo(driverD, buses[3]);
+        printInfo(driverC, trucks[0]);
 
     }
 
