@@ -37,7 +37,7 @@ public class Truck extends Car implements Competing{
         } else {
             String from = weight.getFrom() == null ? "" : "от " + weight.getFrom() + " ";
             String to = weight.getTo() == null ? "" : "до " + weight.getTo() + " ";
-            System.out.println("Грузоподъемность - " + weight);
+            System.out.println("Грузоподъемность - " + weight.getFrom() + weight.getTo());
         }
     }
 

@@ -65,6 +65,16 @@ public class Main {
             bus.finishMovement();
             System.out.println(driverD.getBusMessage(bus));
         }
+
+        printInfo(driverB, automobiles[1]);
+
+
+    }
+
+    private static void printInfo(Driver driver, Car car) {
+        System.out.println("Водитель " + driver.getName() + " управляет транспортным средством " + car.getBrand() +
+                " " + car.getModel() + ", Будет участвовать в гонке");
+        car.printType();
     }
 
     public static void separator() {
