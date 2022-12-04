@@ -32,7 +32,7 @@ public abstract class Driver {
         if (name != null && !name.isEmpty() && !name.isBlank()) {
             this.name = name;
         } else {
-            throw new RuntimeException();
+            throw new RuntimeException("Имя водителя должно быть указано");
         }
     }
 
