@@ -70,6 +70,9 @@ public abstract class Car {
         return this.engineVolume;
     }
 
+    public abstract void printType();
+
+
     @Override
     public String toString() {
         return "Марка транспортного средства - " + brand +
