@@ -2,7 +2,7 @@ package CarRacing;
 
 public abstract class Driver {
 
-    private final String name;
+    private String name;
     private final boolean hasLicense;
     private final double experience;
 
@@ -26,6 +26,14 @@ public abstract class Driver {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        if (name != null && !name.isEmpty() && !name.isBlank()) {
+            this.name = name;
+        } else {
+            throw new RuntimeException();
+        }
     }
 
     public boolean isHasLicense() {
