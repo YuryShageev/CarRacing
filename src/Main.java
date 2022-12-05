@@ -1,4 +1,5 @@
 import CarRacing.*;
+import CarRacing.Check.Data;
 
 public class Main {
 
@@ -71,6 +72,13 @@ public class Main {
         printInfo(driverD, buses[3]);
         printInfo(driverC, trucks[0]);
 
+
+        boolean success = Data.validate("stop", "stop", "stop");
+        if (success) {
+            System.out.println("Данные валидны!");
+        } else {
+            System.out.println("Данные не валидны!");
+        }
     }
 
     private static void printInfo(Driver driver, Car car) {
