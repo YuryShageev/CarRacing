@@ -74,6 +74,11 @@ public class Automobile extends Car implements Competing {
     }
 
     @Override
+    public boolean service() {
+        return Math.random() > 0.7;
+    }
+
+    @Override
     public void pitStopped() {
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " заезжает на пит-стоп для замены колеса.");
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " выезжает из пит-стопа после необходимого обслуживания.");

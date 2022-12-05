@@ -72,6 +72,8 @@ public abstract class Car {
 
     public abstract void printType();
 
+    public abstract boolean service();
+
 
     @Override
     public String toString() {

@@ -79,7 +79,32 @@ public class Main {
         } else {
             System.out.println("Данные не валидны!");
         }
+
+        service(
+                automobiles[0], automobiles[1], automobiles[2], automobiles[3],
+                trucks[0], trucks[1], trucks[2], trucks[3],
+                buses[0], buses[1], buses[2], buses[3]
+        );
     }
+
+    private static void service(Car... cars) {
+        for (Car car : cars) {
+            serviceCars(car);
+        }
+    }
+
+    private static void serviceCars(Car car) {
+
+        try {
+            if (!car.service()) {
+                throw new RuntimeException("Транспортное средство " + car.getBrand() + " " + car.getModel() + " не прошёл диагностику");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+
+        }
+    }
+
 
     private static void printInfo(Driver driver, Car car) {
         System.out.println("Водитель " + driver.getName() + " управляет транспортным средством " + car.getBrand() +
