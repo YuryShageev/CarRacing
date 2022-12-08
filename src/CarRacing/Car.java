@@ -1,5 +1,7 @@
 package CarRacing;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Car {
@@ -7,6 +9,8 @@ public abstract class Car {
     private String brand;
     private String model;
     private float engineVolume;
+
+    private final List<Driver<?>> drivers = new ArrayList<>();
 
     public Car(String brand, String model, float engineVolume) {
         this();
@@ -20,6 +24,10 @@ public abstract class Car {
         model = "Модель не определена";
         engineVolume = 1.5f;
 
+    }
+
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
     }
 
     public void startMovement() {

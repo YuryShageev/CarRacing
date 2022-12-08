@@ -1,6 +1,6 @@
 package CarRacing;
 
-public class DriverB<T extends Automobile> extends Driver {
+public class DriverB<T extends Automobile> extends Driver<T> {
 
     public DriverB(String name, Boolean hasLicense, Integer experience) {
         super(name, hasLicense, experience);

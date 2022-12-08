@@ -1,6 +1,8 @@
 import CarRacing.*;
 import CarRacing.Check.Data;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -85,6 +87,8 @@ public class Main {
                 trucks[0], trucks[1], trucks[2], trucks[3],
                 buses[0], buses[1], buses[2], buses[3]
         );
+
+        ArrayList<Automobile> automobiles1 = new ArrayList<>();
     }
 
     private static void service(Car... cars) {
@@ -106,11 +110,12 @@ public class Main {
     }
 
 
-    private static void printInfo(Driver driver, Car car) {
+    private static void printInfo(Driver<T> driver, Car car) {
         System.out.println("Водитель " + driver.getName() + " управляет транспортным средством " + car.getBrand() +
                 " " + car.getModel() + ", Будет участвовать в гонке");
         car.printType();
     }
+
 
     public static void separator() {
         System.out.println("================================================");

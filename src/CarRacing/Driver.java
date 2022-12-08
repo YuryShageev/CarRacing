@@ -1,6 +1,6 @@
 package CarRacing;
 
-public abstract class Driver {
+public abstract class Driver<T> {
 
     private String name;
     private final boolean hasLicense;
