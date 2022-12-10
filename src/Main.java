@@ -122,6 +122,13 @@ separator();
         }
 
 
+        MainenanceStation mainenanceStation = new MainenanceStation();
+        mainenanceStation.addAutomobile(automobiles[1]);
+        mainenanceStation.addAutomobile(automobiles[2]);
+        mainenanceStation.addTruck(trucks[1]);
+        mainenanceStation.service();
+        mainenanceStation.service();
+        mainenanceStation.service();
     }
 
     private static void printInfoTransport(Car car) {

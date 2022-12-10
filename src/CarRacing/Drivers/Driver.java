@@ -2,7 +2,7 @@ package CarRacing.Drivers;
 
 import CarRacing.Car;
 import CarRacing.Categories.Category;
-import CarRacing.Categories.CategoryB;
+
 
 public abstract class Driver<T extends Car> extends Category {
 
