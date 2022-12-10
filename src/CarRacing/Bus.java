@@ -8,6 +8,11 @@ public class Bus extends Car implements Competing {
         this.capacity = capacity;
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " Починен");
+    }
+
     public Capacity getCapacity() {
         return capacity;
     }

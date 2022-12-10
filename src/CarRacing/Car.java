@@ -1,6 +1,9 @@
 package CarRacing;
 
+import CarRacing.Drivers.Driver;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,6 +14,8 @@ public abstract class Car {
     private float engineVolume;
 
     private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
 
     public Car(String brand, String model, float engineVolume) {
         this();
@@ -26,9 +31,18 @@ public abstract class Car {
 
     }
 
-    public void addDriver(Driver<?> driver) {
-        drivers.add(driver);
+    public void addDriver(Driver<?>... drivers) {
+        this.drivers.addAll(Arrays.asList(drivers));
     }
+    public void addMechanic(Mechanic<?>... mechanics) {
+        this.mechanics.addAll(Arrays.asList(mechanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors) {
+        this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+    public abstract void repair();
 
     public void startMovement() {
         System.out.println("Начать движение!");
@@ -36,6 +50,18 @@ public abstract class Car {
 
     public void finishMovement() {
         System.out.println("Закончить движение!");
+    }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
     }
 
     public String getBrand() {

@@ -1,6 +1,11 @@
-package CarRacing;
+package CarRacing.Drivers;
 
-public class DriverB<T extends Automobile> extends Driver<T> {
+import CarRacing.Automobile;
+import CarRacing.Categories.Category;
+import CarRacing.Categories.CategoryB;
+
+public class DriverB<T extends Automobile> extends Driver {
+
 
     public DriverB(String name, Boolean hasLicense, Integer experience) {
         super(name, hasLicense, experience);
@@ -25,4 +30,5 @@ public class DriverB<T extends Automobile> extends Driver<T> {
         return "Водитель " + getName() + " управляет автомобилем " + automobile.getBrand() + " " + automobile.getModel() +
                 " и будет участвовать в заезде";
     }
+
 }

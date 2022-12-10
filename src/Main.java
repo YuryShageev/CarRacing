@@ -1,19 +1,35 @@
 import CarRacing.*;
+import CarRacing.Categories.CategoryB;
 import CarRacing.Check.Data;
+import CarRacing.Drivers.Driver;
+import CarRacing.Drivers.DriverB;
+import CarRacing.Drivers.DriverC;
+import CarRacing.Drivers.DriverD;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+        DriverB<Automobile> driverB = new DriverB<>("Ковбой", true, 7);
+        Mechanic<Automobile> warren = new Mechanic<>("Ворен", "Баффет", "Toyo");
+        Mechanic<Car> michael = new Mechanic<>("Микаель", "Шумахер", "Kama");
+        Sponsor lukOil = new Sponsor("Лукойл", 2_000_000);
+        Sponsor michelin = new Sponsor("Мишлен", 3_000_000);
+
+
         Automobile[] automobiles = {
                 new Automobile("Шевроле", "Камаро", 3.8f, BodyType.BD_SEDAN),
                 new Automobile("Космич", "Пирожок", 1.5f, BodyType.BD_HATCH),
                 new Automobile("Жигули", "Девятка", 1.5f, BodyType.BD_HATCH),
                 new Automobile("Жигули", "Шестёрка", 1.6f, BodyType.BD_SEDAN)
         };
+        automobiles[0].addDriver(driverB);
+        automobiles[0].addMechanic(warren);
+        automobiles[0].addSponsor(lukOil, michelin);
 
-        DriverB<Automobile> driverB = new DriverB<>("Ковбой", true, 7);
+
+
 
         for (int i = 0; i < automobiles.length; i++) {
             System.out.println(automobiles[i]);
@@ -36,6 +52,10 @@ public class Main {
         };
 
         DriverC<Truck> driverC = new DriverC<>("Михалыч", true, 12);
+        trucks[0].addDriver(driverC);
+        trucks[0].addMechanic(michael);
+        trucks[0].addSponsor(lukOil, michelin);
+
 
         for (int i = 0; i < trucks.length; i++) {
             System.out.println(trucks[i]);
@@ -59,6 +79,10 @@ public class Main {
 
         DriverD<Bus> driverD = new DriverD<>("Петрович", true, 23);
 
+        buses[0].addDriver(driverD);
+        buses[0].addMechanic(michael);
+        buses[0].addSponsor(lukOil);
+
         for (Bus bus : buses) {
             System.out.println(bus);
             bus.startMovement();
@@ -69,10 +93,10 @@ public class Main {
             System.out.println(driverD.getBusMessage(bus));
         }
 
-        separator();
-        printInfo(driverB, automobiles[1]);
-        printInfo(driverD, buses[3]);
-        printInfo(driverC, trucks[0]);
+//        separator();
+//        printInfo(driverB, automobiles[1]);
+//        printInfo(driverD, buses[3]);
+//        printInfo(driverC, trucks[0]);
 
 
         boolean success = Data.validate("stop", "stop", "stop");
@@ -82,13 +106,36 @@ public class Main {
             System.out.println("Данные не валидны!");
         }
 
-        service(
-                automobiles[0], automobiles[1], automobiles[2], automobiles[3],
-                trucks[0], trucks[1], trucks[2], trucks[3],
-                buses[0], buses[1], buses[2], buses[3]
-        );
+//        service(
+//                automobiles[0], automobiles[1], automobiles[2], automobiles[3],
+//                trucks[0], trucks[1], trucks[2], trucks[3],
+//                buses[0], buses[1], buses[2], buses[3]
+//        );
+separator();
+        List<Car> cars = List.of(
+                automobiles[0],
+                trucks[0],
+                buses[0]);
 
-        ArrayList<Automobile> automobiles1 = new ArrayList<>();
+        for (Car car : cars) {
+            printInfoTransport(car);
+        }
+
+
+    }
+
+    private static void printInfoTransport(Car car) {
+        System.out.println("Данные по автомобилю " + car.getBrand() + " " + car.getModel());
+        System.out.println("Водители:" + car.getDrivers());
+
+
+        System.out.println("Спонсоры:" + car.getSponsors());
+
+        System.out.println("Механики:" + car.getMechanics());
+//        for (Mechanic<?> mechanic : car.getMechanics()) {
+//            System.out.println(mechanic.getName() + " " + mechanic.getSurname() + " из " + mechanic.getCompany());
+//        }
+        System.out.println();
     }
 
     private static void service(Car... cars) {
@@ -110,7 +157,7 @@ public class Main {
     }
 
 
-    private static void printInfo(Driver<T> driver, Car car) {
+    private static void printInfo(Driver<?> driver, Car car) {
         System.out.println("Водитель " + driver.getName() + " управляет транспортным средством " + car.getBrand() +
                 " " + car.getModel() + ", Будет участвовать в гонке");
         car.printType();

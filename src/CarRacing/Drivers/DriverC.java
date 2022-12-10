@@ -1,4 +1,6 @@
-package CarRacing;
+package CarRacing.Drivers;
+
+import CarRacing.Truck;
 
 public class DriverC <T extends Truck> extends Driver<T> {
 

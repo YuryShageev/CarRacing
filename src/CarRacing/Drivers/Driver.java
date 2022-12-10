@@ -1,10 +1,16 @@
-package CarRacing;
+package CarRacing.Drivers;
 
-public abstract class Driver<T> {
+import CarRacing.Car;
+import CarRacing.Categories.Category;
+import CarRacing.Categories.CategoryB;
+
+public abstract class Driver<T extends Car> extends Category {
 
     private String name;
     private final boolean hasLicense;
     private final double experience;
+
+    private T t;
 
     public Driver(String name, boolean hasLicense, Integer experience) {
         this.name = validateParameters(name);
@@ -49,4 +55,9 @@ public abstract class Driver<T> {
     abstract String stop();
 
     abstract String refuel();
+
+    @Override
+    public String toString() {
+        return name + ", стаж вождения " + experience + " лет, нужная категория " + t;
+    }
 }

@@ -53,6 +53,11 @@ public class Automobile extends Car implements Competing {
     public Automobile() {
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " Починена");
+    }
+
 
     @Override
     public void startMovement() {
