@@ -2,10 +2,7 @@ package CarRacing;
 
 import CarRacing.Drivers.Driver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class Car {
 
@@ -16,6 +13,7 @@ public abstract class Car {
     private final List<Driver<?>> drivers = new ArrayList<>();
     private final List<Mechanic<?>> mechanics = new ArrayList<>();
     private final List<Sponsor> sponsors = new ArrayList<>();
+    private final Set<Car> cars = new HashSet<>();
 
     public Car(String brand, String model, float engineVolume) {
         this();
@@ -31,6 +29,8 @@ public abstract class Car {
 
     }
 
+
+
     public void addDriver(Driver<?>... drivers) {
         this.drivers.addAll(Arrays.asList(drivers));
     }
@@ -40,6 +40,10 @@ public abstract class Car {
 
     public void addSponsor(Sponsor... sponsors) {
         this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+    public void addTransport(Car... cars) {
+        this.cars.addAll(Arrays.asList(cars));
     }
 
     public abstract void repair();
@@ -113,7 +117,7 @@ public abstract class Car {
     public String toString() {
         return "Марка транспортного средства - " + brand +
                 ", Модель - " + model +
-                ", Объём двигателя - " + engineVolume;
+                ", Объём двигателя - " + engineVolume + "\n";
     }
 
     @Override

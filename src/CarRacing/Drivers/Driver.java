@@ -3,12 +3,18 @@ package CarRacing.Drivers;
 import CarRacing.Car;
 import CarRacing.Categories.Category;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 
 public abstract class Driver<T extends Car> extends Category {
 
     private String name;
     private final boolean hasLicense;
     private final double experience;
+    private final Set<Driver> drivers = new HashSet<>();
 
     private T t;
 
@@ -16,6 +22,10 @@ public abstract class Driver<T extends Car> extends Category {
         this.name = validateParameters(name);
         this.hasLicense = validateBoolean(hasLicense);
         this.experience = validateInteger(experience);
+    }
+
+    public void addDrivers(Driver driver) {
+        this.drivers.addAll(Arrays.asList(driver));
     }
 
     public static String validateParameters(String value) {
@@ -59,5 +69,18 @@ public abstract class Driver<T extends Car> extends Category {
     @Override
     public String toString() {
         return name + ", стаж вождения " + experience + " лет, нужная категория " + t;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Driver)) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return name.equals(driver.name) && drivers.equals(driver.drivers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, drivers);
     }
 }

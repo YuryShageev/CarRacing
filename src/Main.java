@@ -6,7 +6,9 @@ import CarRacing.Drivers.DriverB;
 import CarRacing.Drivers.DriverC;
 import CarRacing.Drivers.DriverD;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -129,6 +131,34 @@ separator();
         mainenanceStation.service();
         mainenanceStation.service();
         mainenanceStation.service();
+
+        Set<Car> transport = new HashSet<>();
+        for (int i = 0; i < 4; i++) {
+            transport.add(automobiles[i]);
+            transport.add(trucks[i]);
+            transport.add(buses[i]);
+        }
+        System.out.println(transport);
+        separator();
+
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(driverB);
+        drivers.add(driverC);
+        drivers.add(driverD);
+        System.out.println(drivers);
+
+        separator();
+
+        Set<Mechanic> mechanics = new HashSet<>();
+        mechanics.add(warren);
+        mechanics.add(michael);
+        System.out.println(mechanics);
+        separator();
+
+        Set<Sponsor> sponsors = new HashSet<>();
+        sponsors.add(lukOil);
+        sponsors.add(michelin);
+        System.out.println(sponsors);
     }
 
     private static void printInfoTransport(Car car) {
