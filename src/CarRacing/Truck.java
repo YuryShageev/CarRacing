@@ -21,6 +21,11 @@ public class Truck extends Car implements Competing{
     }
 
     @Override
+    public void repair() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " Починен");
+    }
+
+    @Override
     public void startMovement() {
         System.out.println("Начать движение!");
     }
@@ -39,6 +44,11 @@ public class Truck extends Car implements Competing{
             String to = weight.getTo() == null ? "" : "до " + weight.getTo() + " ";
             System.out.println("Грузоподъемность - от " + weight.getFrom()+ " до " + weight.getTo() + " тонн");
         }
+    }
+
+    @Override
+    public boolean service() {
+        return Math.random() > 0.75;
     }
 
 

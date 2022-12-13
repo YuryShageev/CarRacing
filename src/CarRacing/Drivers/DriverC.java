@@ -1,6 +1,8 @@
-package CarRacing;
+package CarRacing.Drivers;
 
-public class DriverC <T extends Truck> extends Driver{
+import CarRacing.Truck;
+
+public class DriverC <T extends Truck> extends Driver<T> {
 
     public DriverC(String name, boolean hasLicense, Integer experience) {
         super(name, hasLicense, experience);

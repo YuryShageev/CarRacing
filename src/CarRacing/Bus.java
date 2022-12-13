@@ -8,6 +8,11 @@ public class Bus extends Car implements Competing {
         this.capacity = capacity;
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " Починен");
+    }
+
     public Capacity getCapacity() {
         return capacity;
     }
@@ -36,6 +41,13 @@ public class Bus extends Car implements Competing {
         } else {
             System.out.println("Вместимость - от " + capacity.getFrom() + " до " + capacity.getTo() + " человек");
         }
+    }
+
+    @Override
+    public boolean service() {
+
+        System.out.println("Автобус " + getBrand()+" "+ getModel() + " в диагностике не нуждается");
+        return true;
     }
 
 

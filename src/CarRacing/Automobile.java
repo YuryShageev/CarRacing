@@ -53,6 +53,11 @@ public class Automobile extends Car implements Competing {
     public Automobile() {
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " Починена");
+    }
+
 
     @Override
     public void startMovement() {
@@ -71,6 +76,11 @@ public class Automobile extends Car implements Competing {
         } else {
             System.out.println("Тип кузова - " + bodyType);
         }
+    }
+
+    @Override
+    public boolean service() {
+        return Math.random() > 0.7;
     }
 
     @Override

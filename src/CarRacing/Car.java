@@ -1,12 +1,19 @@
 package CarRacing;
 
-import java.util.Objects;
+import CarRacing.Drivers.Driver;
+
+import java.util.*;
 
 public abstract class Car {
 
     private String brand;
     private String model;
     private float engineVolume;
+
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
+    private final Set<Car> cars = new HashSet<>();
 
     public Car(String brand, String model, float engineVolume) {
         this();
@@ -22,12 +29,43 @@ public abstract class Car {
 
     }
 
+
+
+    public void addDriver(Driver<?>... drivers) {
+        this.drivers.addAll(Arrays.asList(drivers));
+    }
+    public void addMechanic(Mechanic<?>... mechanics) {
+        this.mechanics.addAll(Arrays.asList(mechanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors) {
+        this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+    public void addTransport(Car... cars) {
+        this.cars.addAll(Arrays.asList(cars));
+    }
+
+    public abstract void repair();
+
     public void startMovement() {
         System.out.println("Начать движение!");
     }
 
     public void finishMovement() {
         System.out.println("Закончить движение!");
+    }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
     }
 
     public String getBrand() {
@@ -72,12 +110,14 @@ public abstract class Car {
 
     public abstract void printType();
 
+    public abstract boolean service();
+
 
     @Override
     public String toString() {
         return "Марка транспортного средства - " + brand +
                 ", Модель - " + model +
-                ", Объём двигателя - " + engineVolume;
+                ", Объём двигателя - " + engineVolume + "\n";
     }
 
     @Override
